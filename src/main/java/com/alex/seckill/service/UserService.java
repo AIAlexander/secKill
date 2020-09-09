@@ -5,6 +5,8 @@ import com.alex.seckill.domain.User;
 import com.alex.seckill.vo.UserVO;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author wsh
  * @date 2020-09-03
@@ -18,5 +20,7 @@ public interface UserService {
 
     User getUserByPhone(String phone);
 
-    Response login(UserVO userVO);
+    User getUserByToken(HttpServletResponse response, String token);
+
+    Response login(HttpServletResponse response, UserVO userVO);
 }

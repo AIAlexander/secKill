@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 /**
@@ -37,7 +38,7 @@ public class LoginController {
 
     @PostMapping
     @ResponseBody
-    public Response login(@Valid UserVO userVO){
+    public Response login(HttpServletResponse response, @Valid UserVO userVO){
         log.info("Login: {}", JSON.toJSONString(userVO));
         //参数校验
 //        String password = userVO.getPassword();
@@ -52,6 +53,6 @@ public class LoginController {
 //            return Response.PHONE_FORMAT_ERROR();
 //        }
         //登录
-        return userService.login(userVO);
+        return userService.login(response, userVO);
     }
 }
