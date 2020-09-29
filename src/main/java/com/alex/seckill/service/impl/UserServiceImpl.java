@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         }
         User user = redisService.get(UserKey.USER_TOKEN, token, User.class);
         if(user != null){
-            addCookie(response, user);
+            addCookie(response, token, user);
         }
         return user;
     }
@@ -89,12 +89,12 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(50020, "密码错误！");
         }
         //登录成功，生成token存入redis中
-        addCookie(response, user);
+        String token = UUIDUtils.genernateUUID();
+        addCookie(response, token, user);
         return Response.SUCCESS(true);
     }
 
-    private void addCookie(HttpServletResponse response, User user){
-        String token = UUIDUtils.genernateUUID();
+    private void addCookie(HttpServletResponse response, String token, User user){
         redisService.set(UserKey.USER_TOKEN, token, user);
         log.info("Cookie token: {}", token);
         //将token放入cookie中
