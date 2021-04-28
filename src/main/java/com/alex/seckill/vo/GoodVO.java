@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class GoodVO extends Good {
-    private BigDecimal price;
+    private BigDecimal price;   //秒杀价格
     private Integer stockCount;
     private Date startDate;
     private Date endDate;

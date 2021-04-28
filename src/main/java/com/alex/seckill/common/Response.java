@@ -51,14 +51,24 @@ public class Response {
         return new Response(50020, "登录异常，密码错误", null);
     }
 
+    public static Response GOOD_NOT_FOUND(){
+        return new Response(50030, "商品不存在", null);
+    }
 
     public static Response ORDER_ERROR(){
         return new Response(50040, "订单异常", null);
+    }
+    public static Response ORDER_NOT_FOUND(){
+        return new Response(50040, "订单不存在", null);
     }
 
     public static Response SECKILL_ERROR(){
         return new Response(50050, "秒杀异常", null);
     }
-
-
+    public static Response SECKILL_OVER(){
+        return new Response(50050, "秒杀已经结束", null);
+    }
+    public static Response SECKILL_REPEAT(){
+        return new Response(50050, "不能够重新秒杀", null);
+    }
 }

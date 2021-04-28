@@ -6,14 +6,12 @@ import com.alex.seckill.service.GoodService;
 import com.alex.seckill.service.UserService;
 import com.alex.seckill.service.impl.UserServiceImpl;
 import com.alex.seckill.vo.GoodVO;
+import com.alex.seckill.vo.SecKillGoodDetailVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -44,5 +42,13 @@ public class GoodController {
         List<GoodVO> goodVOList = goodService.getGoodVOList();
         model.addAttribute("goodList", goodVOList);
         return "goods-list";
+    }
+
+    @GetMapping("/to_detail/{goodsId}")
+    public String list(Model model, User user, @PathVariable("goodsId") Long goodsId){
+        model.addAttribute("user", user);
+        SecKillGoodDetailVO goodDetailVO = goodService.getSecKillGoodDetailVOById(goodsId);
+        model.addAttribute("goodDetail", goodDetailVO);
+        return "goods-detail";
     }
 }

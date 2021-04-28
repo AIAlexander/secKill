@@ -1,6 +1,7 @@
 package com.alex.seckill.service;
 
 import com.alex.seckill.vo.GoodVO;
+import com.alex.seckill.vo.SecKillGoodDetailVO;
 
 import java.util.List;
 
@@ -10,5 +11,11 @@ import java.util.List;
  */
 public interface GoodService {
 
-    public List<GoodVO> getGoodVOList();
+    GoodVO getGoodVOById(Long goodId);
+
+    List<GoodVO> getGoodVOList();
+
+    SecKillGoodDetailVO getSecKillGoodDetailVOById(Long goodId);
+
+    void reduceSecKillGoodStock(Long goodId);
 }

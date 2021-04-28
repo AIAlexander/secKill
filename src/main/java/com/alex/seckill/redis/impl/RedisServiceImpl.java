@@ -28,6 +28,8 @@ public class RedisServiceImpl implements RedisService {
     @Autowired
     RedisConfig redisConfig;
 
+
+
     @Override
     public <T> T get(KeyPrefix prefix, String key, Class<T> clazz) {
         Jedis jedis = null;

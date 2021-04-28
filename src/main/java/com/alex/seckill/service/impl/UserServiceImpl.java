@@ -13,6 +13,7 @@ import com.alex.seckill.util.UUIDUtils;
 import com.alex.seckill.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,15 +43,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void testTx() {
-        User u1 = new User();
-        u1.setId(2);
-        u1.setName("aaaaa");
-        userDao.saveUser(u1);
-
-        User u2 = new User();
-        u2.setId(2);
-        u2.setName("bbbb");
-        userDao.saveUser(u2);
+//        User u1 = new User();
+//        u1.setId(2);
+//        u1.setName("aaaaa");
+//        userDao.saveUser(u1);
+//
+//        User u2 = new User();
+//        u2.setId(2);
+//        u2.setName("bbbb");
+//        userDao.saveUser(u2);
     }
 
     @Override

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>商品列表</title>
+    <title>订单详情</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- jquery -->
     <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
@@ -19,26 +19,6 @@
     <script type="text/javascript" th:src="@{/js/common.js}"></script>
 </head>
 <body>
-    <div class="panel panel-default">
-        <div class="panel-heading">秒杀商品列表</div>
-        <table class="table" id="goodslist">
-            <tr>
-                <td>商品名称</td>
-                <td>商品图片</td>
-                <td>商品原价</td>
-                <td>秒杀价</td>
-                <td>库存数量</td>
-                <td>详情</td>
-            </tr>
-            <tr th:each="good,goodStat : ${goodList}">
-                <td th:text="${good.goodName}"></td>
-                <td><img th:src="@{${good.goodImage}}"/></td>
-                <td th:text="${good.goodPrice}"></td>
-                <td th:text="${good.price}"></td>
-                <td th:text="${good.stockCount}"></td>
-                <td><a th:href="'/good/to_detail/' + ${good.id}">详情</a></td>
-            </tr>
-        </table>
-    </div>
+    <p th:text="${orderInfo.orderInfo.id}"></p>
 </body>
 </html>
